@@ -1,0 +1,322 @@
+1. What is jQuery?
+jQuery is a JavaScript library that makes common JavaScript tasks easier and shorter.
+jQuery is not a new programming language. It is a library built on top of JavaScript.
+
+For example, in JavaScript:
+document.getElementById("title").textContent = "Hello";
+
+With jQuery:
+$("#title").text("Hello");
+
+Both perform a similar task, but jQuery provides a shorter and convenient syntax.
+
+2. Why was jQuery created?
+Before jQuery became popular, 
+JavaScript code for DOM manipulation and browser compatibility could become lengthy.
+
+For example:
+
+JavaScript
+document.getElementById("btn").addEventListener("click", function () {
+    document.getElementById("message").textContent = "Button clicked";
+});
+
+jQuery
+$("#btn").click(() => {
+    $("#message").text("Button clicked");
+});
+
+jQuery provides convenient methods for:
+Selecting HTML elements
+Changing HTML content
+Changing CSS
+Handling events
+Creating animations
+Showing/hiding elements
+Manipulating the DOM
+
+3. What does "library" mean?
+A library is a collection of pre-written code that we can use in our own application.
+
+Imagine you want to build a house.
+Instead of making every brick yourself, you can use ready-made bricks.
+Similarly, jQuery provides ready-made functions and methods.
+
+For example:
+$("#box").hide();
+
+We don't need to manually write all the code required to hide the element.
+jQuery already provides: hide()
+
+4. jQuery vs JavaScript
+
+"If JavaScript already exists, why do we need jQuery?"
+
+Explain it like this:
+
+JavaScript              	              jQuery
+Programming language	            JavaScript library
+More code sometimes	                Often shorter code
+Native browser API	                Uses a convenient API
+No library required	                jQuery library must be included
+Modern JavaScript is very powerful	Still useful for understanding legacy projects
+
+Today, JavaScript itself has improved significantly.
+Many things that were traditionally easier with jQuery can now be done easily with modern JavaScript.
+
+
+5. How do we use jQuery?
+There are mainly two common ways.
+
+Method 1 — CDN
+CDN means Content Delivery Network.
+We can include jQuery directly in our HTML.
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+6. Basic HTML setup
+Create:
+jquery-day1/
+├── index.html
+└── script.js
+
+
+7. Understand the jQuery syntax
+$(selector).method();
+
+For example:
+$("#title").text("Hello");
+
+Break it down:
+$       → jQuery
+#title  → selector
+text()  → jQuery method
+
+So:
+$("#title").text("Hello");
+
+means:
+Select the element whose ID is title and change its text to "Hello".
+
+8. What is $?
+In jQuery:
+$ is a shortcut for: jQuery
+
+For example:
+$("#title") is essentially:
+jQuery("#title")
+
+Both refer to jQuery.
+Usually we use:
+$
+
+9. What is a selector?
+A selector tells jQuery which HTML element we want to work with.
+This concept is similar to CSS selectors.
+
+Suppose HTML is:
+<h1 id="title">Hello</h1>
+<p class="message">Welcome</p>
+<button>Click</button>
+
+We can select them using:
+
+ID selector
+$("#title")
+Equivalent CSS:
+#title
+
+Class selector
+$(".message")
+Equivalent CSS:
+.message
+
+Element selector
+$("button")
+Equivalent CSS:
+button
+
+10. ID Selector
+HTML:
+<h1 id="heading">Welcome</h1>
+
+jQuery:
+$("#heading")
+
+Example:
+$("#heading").text("Hello");
+
+11. Class Selector
+HTML:
+<p class="message">Hello</p>
+
+jQuery:
+$(".message")
+
+Example:
+$(".message").text("Welcome Students");
+
+12. Element Selector
+HTML:
+<p>Hello</p>
+<p>Welcome</p>
+
+jQuery:
+$("p")
+
+This selects the <p> elements.
+
+For example:
+$("p").css("color", "red");
+This changes the paragraph text color.
+
+13. First practical example
+
+
+15. Important jQuery methods
+Start with these basic methods.
+.text() - Used to get or change text.
+$("#title").text("Hello");
+
+.html() - Used to get or change HTML.
+$("#box").html("<b>Hello</b>");
+
+.css() - Used to change CSS.
+$("#title").css("color", "blue");
+
+Multiple CSS properties:
+$("#title").css({
+    "color": "blue",
+    "font-size": "30px"
+});
+
+.hide() - Hides an element.
+$("#title").hide();
+
+.show() - Shows an element.
+$("#title").show();
+
+16. jQuery document ready
+Run the jQuery code after the HTML document has been loaded.
+
+$(document).ready(function () {
+  // code 
+});
+
+Example:
+$(document).ready(function () {
+    $("#title").text("Page Loaded");
+});
+
+Why do we need this?
+Imagine JavaScript runs before this HTML exists:
+<h1 id="title">Hello</h1>
+Then jQuery may not find the element.
+document.ready() makes sure the HTML has been loaded before our code executes.
+
+17. Shorter syntax
+
+$(document).ready(function () {
+    $("#title").text("Hello");
+});
+
+Modern jQuery code commonly uses shorthand method:
+$(function () {
+    $("#title").text("Hello");
+});
+
+18.jQuery must load first
+
+Correct:
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="script.js"></script>
+
+Incorrect:
+<script src="script.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+Why?
+Because script.js uses:
+$
+and $ is provided by jQuery.
+
+So:
+jQuery → Your JavaScript
+
+19. Mini Project — Change Text and CSS
+
+
+20.Student Practice
+Exercise 1
+Create:
+<h1 id="title">Hello World</h1>
+Create a button.
+When the button is clicked, change the heading to:
+Welcome to jQuery
+
+
+Exercise 2
+Create:
+<p id="message">This is a paragraph.</p>
+When a button is clicked, change the paragraph color to blue.
+
+Exercise 3
+Create:
+<h2 id="heading">jQuery</h2>
+Create two buttons:
+Red
+Green
+Clicking Red should make the heading red.
+Clicking Green should make the heading green.
+
+Exercise 4
+Create:
+<p id="para">This paragraph can disappear.</p>
+Create a button:
+Hide
+When clicked:
+$("#para").hide();
+
+Exercise 5
+Create two buttons:
+Hide
+Show
+Use:
+.hide()
+and:
+.show()
+
+
+21. Day 1 Cheat Sheet
+$(selector).method();
+
+Select by ID
+$("#id")
+
+Select by class
+$(".class")
+
+Select by tag
+$("p")
+
+Change text
+$("#title").text("Hello");
+
+Change HTML
+$("#title").html("<b>Hello</b>");
+
+Change CSS
+$("#title").css("color", "red");
+
+Hide
+$("#title").hide();
+
+Show
+$("#title").show();
+
+Click event
+$("#btn").click(function () {
+});
+
+Document ready
+$(document).ready(function () {
+});

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Practice</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <h1 id="heading">Welcome to jQuery</h1>
+    <button id="changeText">Change Text</button>
+    <button id="changeColor">Change Color</button>
+</body>
+</html>
+<script>
+$(document).ready(function () {
+    $("#changeText").click(function () {
+        $("#heading").text("Welcome Students!");
+    });
+    $("#changeColor").click(function () {
+        $("#heading").css("color", "red");
+    });
+});
+</script>
