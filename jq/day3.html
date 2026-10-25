@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
+    <title>Day 3 of Jquery</title>
+</head>
+<body>
+    <img id="myImage" src="old.jpg" width="200">
+    <img id="image" src="old.jpg" width="300">
+    <button id="change">Change Image</button>
+    <h1 id="title">Helloo</h1>
+    <ul id="students">
+        <li>Rahul</li>
+        <li>Arun</li>
+    </ul>
+    <div id="box">
+        <h2>Hello</h2>
+        <p>Welcome</p>
+    </div>
+    <input type="text" id="name"><br><br>
+    <button id="btn">Click</button><br><br>
+
+    <select id="course">
+        <option value="python">Python</option>
+        <option value="react">React</option>
+        <option value="django">Django</option>
+    </select>
+</body>
+<script>
+    $("#myImage").attr("src", "wlppr.jpg");
+    $("#change").click(function () {
+        $("#image").attr("src", "wlppr.jpg");
+    });
+    // $("#image").removeAttr("width");
+
+    $("#students").append("<li>Diya</li>");
+    $("#students").prepend("<li>Vishnu</li>");
+    $("#title").remove();
+    // $("#box").empty();
+    $("#btn").dblclick(function () {
+        alert("Button clicked!");
+    });
+    // $("#box").mouseenter(function () {
+    //     console.log("Mouse entered");
+    // });
+
+    $("#box").hover(
+        function () {
+            console.log("Mouse entered");
+        },
+        function () {
+            console.log("Mouse left");
+        }
+    );
+    
+    $("#name").keydown(function () {
+        console.log("Key pressed");
+    });
+    
+    $("#name").keyup(function () {
+        console.log("Key released");
+    });
+
+    $("#course").change(function () {
+        let course = $(this).val();
+        console.log(course);
+    });
+    
+    $("#btn").click(function () {
+        $(this).css("background-color", "red");
+    });
+
+</script>
+</html>

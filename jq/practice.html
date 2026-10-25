@@ -1,0 +1,147 @@
+<!-- mportant DOM Methods
+
+Method	Purpose
+.text()	Get/set text
+.html()	Get/set HTML
+.val()	Get/set input value
+.attr()	Get/set attribute
+.removeAttr()	Remove attribute
+.css()	Change CSS
+.addClass()	Add class
+.removeClass()	Remove class
+.toggleClass()	Toggle class
+.hasClass()	Check class
+.append()	Add at end
+.prepend()	Add at beginning
+.before()	Add before
+.after()	Add after
+.remove()	Remove element
+.empty()	Remove contents
+
+Practical 1 – Change Student Name
+
+HTML
+<h2 id="student">Student Name</h2>
+<button id="changeBtn">Change Name</button>
+
+jQuery
+$("#changeBtn").click(function () {
+    $("#student").text("Adithya");
+});
+
+
+Practical 2 – Get User Input
+<input type="text" id="name">
+<button id="btn">Display</button>
+<h2 id="result"></h2>
+
+$("#btn").click(function () {
+    let name = $("#name").val();
+    $("#result").text("Welcome " + name);
+});
+
+Flow
+User enters name
+       ↓
+Click button
+       ↓
+.val()
+       ↓
+Get input
+       ↓
+.text()
+       ↓
+Display result
+
+Practical 3 – Dynamic Student List
+<input type="text" id="studentName">
+<button id="addBtn">Add Student</button>
+<ul id="studentList"></ul>
+
+$("#addBtn").click(function () {
+    let name = $("#studentName").val();
+    $("#studentList").append(
+        "<li>" + name + "</li>"
+    );
+    $("#studentName").val("");
+});
+
+Example
+User enters:
+Rahul
+Click Add Student.
+Output:
+• Rahul
+Then:
+• Rahul
+• Meera
+• Arun
+
+DOM manipulation
+🧪 Practical 4 – Add/Delete Students
+<input type="text" id="studentName">
+
+<button id="addBtn">Add Student</button>
+
+<ul id="studentList"></ul>
+$("#addBtn").click(function () {
+
+    let name = $("#studentName").val();
+
+    $("#studentList").append(
+        "<li>" + name + 
+        " <button class='delete'>Delete</button></li>"
+    );
+
+    $("#studentName").val("");
+
+});
+
+
+📝 Day 3 Exercises
+Beginner
+Change an <h1> text using jQuery.
+Get the text from a paragraph and display it in the console.
+Change an input value.
+Get a user's name and display Welcome, Name.
+Change an image using .attr().
+Change the background color of a <div>.
+Add a CSS class to a heading.
+Remove a CSS class.
+Toggle a CSS class.
+Check whether an element has a particular class.
+
+Intermediate
+Create a student list dynamically.
+Add multiple students using an input.
+Add a delete button beside every student.
+Create a simple todo list.
+Add and remove todo items.
+Create a product list dynamically.
+Change product price using .text().
+Change product image using .attr().
+Add a featured class to selected products.
+Create a simple Student Management UI using jQuery DOM manipulation.
+
+🎯 Mini Project: Student List
+By the end of Day 3, give students this task:
+
+Requirements:
+Student Management
+────────────────────────
+
+Student Name: [____________]
+
+[ Add Student ]
+
+Students
+────────────────
+1. Rahul       [Delete]
+2. Meera       [Delete]
+3. Arun        [Delete]
+Concepts students must use
+.val()
+.append()
+.text()
+.remove()
+.click() -->

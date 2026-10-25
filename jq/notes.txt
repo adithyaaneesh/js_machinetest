@@ -5,6 +5,8 @@ jQuery is not a new programming language. It is a library built on top of JavaSc
 For example, in JavaScript:
 document.getElementById("title").textContent = "Hello";
 
+<p id="title">hello</p>
+
 With jQuery:
 $("#title").text("Hello");
 
@@ -17,7 +19,7 @@ JavaScript code for DOM manipulation and browser compatibility could become leng
 For example:
 
 JavaScript
-document.getElementById("btn").addEventListener("click", function () {
+document.getElementById("btn").addEventListener("click", () => {
     document.getElementById("message").textContent = "Button clicked";
 });
 
@@ -27,13 +29,13 @@ $("#btn").click(() => {
 });
 
 jQuery provides convenient methods for:
-Selecting HTML elements
-Changing HTML content
-Changing CSS
-Handling events
-Creating animations
-Showing/hiding elements
-Manipulating the DOM
+    Selecting HTML elements
+    Changing HTML content
+    Changing CSS
+    Handling events
+    Creating animations
+    Showing/hiding elements
+    Manipulating the DOM
 
 3. What does "library" mean?
 A library is a collection of pre-written code that we can use in our own application.
@@ -41,6 +43,8 @@ A library is a collection of pre-written code that we can use in our own applica
 Imagine you want to build a house.
 Instead of making every brick yourself, you can use ready-made bricks.
 Similarly, jQuery provides ready-made functions and methods.
+
+<p id="box">hello</p>
 
 For example:
 $("#box").hide();
@@ -66,11 +70,9 @@ Many things that were traditionally easier with jQuery can now be done easily wi
 
 
 5. How do we use jQuery?
-There are mainly two common ways.
 
-Method 1 — CDN
+Method  — CDN
 CDN means Content Delivery Network.
-We can include jQuery directly in our HTML.
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
 6. Basic HTML setup
@@ -114,22 +116,19 @@ A selector tells jQuery which HTML element we want to work with.
 This concept is similar to CSS selectors.
 
 Suppose HTML is:
+
 <h1 id="title">Hello</h1>
 <p class="message">Welcome</p>
 <button>Click</button>
-
 We can select them using:
-
 ID selector
 $("#title")
 Equivalent CSS:
 #title
-
 Class selector
 $(".message")
 Equivalent CSS:
 .message
-
 Element selector
 $("button")
 Equivalent CSS:
@@ -167,13 +166,18 @@ This selects the <p> elements.
 
 For example:
 $("p").css("color", "red");
+$("p").css({
+    "color": "red",
+    "background-color" : "black",
+});
+
 This changes the paragraph text color.
 
 13. First practical example
 
 
 15. Important jQuery methods
-Start with these basic methods.
+
 .text() - Used to get or change text.
 $("#title").text("Hello");
 
@@ -194,6 +198,8 @@ $("#title").hide();
 
 .show() - Shows an element.
 $("#title").show();
+
+
 
 16. jQuery document ready
 Run the jQuery code after the HTML document has been loaded.
@@ -242,6 +248,9 @@ and $ is provided by jQuery.
 So:
 jQuery → Your JavaScript
 
+
+
+
 19. Mini Project — Change Text and CSS
 
 
@@ -284,6 +293,11 @@ Use:
 .hide()
 and:
 .show()
+
+
+
+
+
 
 
 21. Day 1 Cheat Sheet

@@ -1,0 +1,421 @@
+$(selector).method();
+Examples:
+
+$("#title").text("Hello");
+$(".box").hide();
+$(.box").show();
+$("#heading").css("color", "red");
+
+The basic idea is:
+Select an element → Perform an action
+
+2. What is DOM Manipulation?
+DOM = Document Object Model
+When the browser loads HTML, it creates a 
+structure representing the HTML elements.
+
+For example:
+
+<h1 id="title">Hello</h1>
+<p>Welcome</p>
+The browser represents these elements as objects in the DOM.
+JavaScript and jQuery can then:
+
+Change text
+ 
+Change HTML
+Change CSS
+Add elements
+Remove elements
+Add classes
+Remove classes
+Change attributes
+Handle events
+This is called DOM manipulation.
+
+3. .text() — Get and Set Text
+
+Set text
+$("#title").text("Welcome Students");
+
+HTML:
+<h1 id="title">Hello</h1>
+
+After executing:
+<h1 id="title">Welcome Students</h1>
+
+Get text
+We can also use .text() to read the text.
+let value = $("#title").text();
+console.log(value);
+
+If HTML is:
+<h1 id="title">Hello Students</h1>
+Output:
+Hello Students
+Important
+$("#title").text("Hello");
+
+Set
+$("#title").text();
+
+4. .html() — Get and Set HTML
+.html() is similar to .text(), but it works with HTML content.
+Example:
+$("#box").html("<b>Hello</b>");
+HTML:
+<div id="box"></div>
+Result:
+<div id="box">
+    <b>Hello</b>
+</div>
+The <b> tag is interpreted as HTML.
+
+Difference between .text() and .html()
+Consider:
+$("#box").text("<b>Hello</b>");
+Output:
+<b>Hello</b>
+But:
+$("#box").html("<b>Hello</b>");
+Output visually:
+Hello
+because <b> is treated as HTML.
+
+Remember:
+.text() → treats content as text
+.html() → treats content as HTML
+
+5. .val() — Form Values
+HTML:
+<input type="text" id="username">
+To get the entered value:
+let username = $("#username").val();
+console.log(username);
+Suppose the user enters:
+diya
+Output:
+diya
+
+Set input value:
+$("#username").val("diya");
+
+The input will contain:
+diya
+
+So:
+$("#username").val();
+➡️ Get value
+
+$("#username").val("diya");
+➡️ Set value
+
+6. Practical Form Example
+HTML
+<input type="text" id="name">
+<button id="btn">Show Name</button>
+<p id="result"></p>
+
+jQuery
+$("#btn").click(function () {
+    let name = $("#name").val();
+    $("#result").text(name);
+});
+
+7. .css() — Changing CSS
+We can change CSS using:
+$("#title").css("color", "red");
+Syntax:
+$(selector).css("property", "value");
+
+Example:
+$("#box").css("background-color", "yellow");
+
+Multiple CSS properties
+$("#box").css({
+    "color": "white",
+    "background-color": "black",
+    "font-size": "25px"
+});
+This is useful when you want to change multiple styles at once.
+
+8. .addClass()
+Instead of directly changing CSS using .css(), we can add a CSS class.
+HTML:
+<h1 id="title">Hello</h1>
+CSS:
+.highlight {
+    color: red;
+    font-size: 30px;
+}
+jQuery:
+$("#title").addClass("highlight");
+The class gets added to the element.
+
+Result:
+<h1 id="title" class="highlight">Hello</h1>
+
+9. .removeClass()
+To remove a class:
+$("#title").removeClass("highlight");
+The class is removed.
+
+10. .toggleClass()
+This is very useful.
+$("#title").toggleClass("highlight");
+
+If the class doesn't exist:
+Add class
+If the class already exists:
+Remove class
+
+So:
+toggle = add ↔ remove
+
+11. Practical Class Example
+HTML
+<h1 id="heading">jQuery</h1>
+<button id="btn">Toggle Style</button>
+CSS
+.highlight {
+    color: red;
+    font-size: 40px;
+}
+jQuery
+$("#btn").click(function () {
+    $("#heading").toggleClass("highlight");
+});
+
+
+
+
+12. .attr() — Attributes
+
+HTML:
+<img id="photo" src="old.jpg">
+
+We can get the src:
+let image = $("#photo").attr("src");
+console.log(image);
+
+We can change it:
+$("#photo").attr("src", "new.jpg");
+
+Syntax
+$(selector).attr("attribute");
+Get attribute.
+
+$(selector).attr("attribute", "value");
+Set attribute.
+
+13. Changing Image Using jQuery
+HTML
+<img id="image" src="image1.jpg" width="300">
+<button id="change">Change Image</button>
+
+jQuery
+$("#change").click(function () {
+    $("#image").attr("src", "image2.jpg");
+});
+
+When the button is clicked, the image changes.
+
+14. .removeAttr()
+To remove an attribute:
+$("#image").removeAttr("width");
+
+The width attribute is removed.
+
+15. .append()
+.append() adds content at the end of an element.
+
+HTML:
+<ul id="students">
+    <li>Rahul</li>
+    <li>Arun</li>
+</ul>
+
+jQuery:
+$("#students").append("<li>Diya</li>");
+
+Result:
+Rahul
+Arun
+Diya
+
+16. .prepend()
+.prepend() adds content at the beginning.
+
+$("#students").prepend("<li>Vishnu</li>");
+
+Result:
+
+Vishnu
+Rahul
+Arun
+Easy way to remember
+append  → end
+prepend → beginning
+
+17. .remove()
+To completely remove an element:
+$("#title").remove();
+The selected element is deleted from the DOM.
+
+18. .empty()
+.empty() removes the contents inside an element.
+HTML:
+<div id="box">
+    <h2>Hello</h2>
+    <p>Welcome</p>
+</div>
+
+jQuery:
+
+$("#box").empty();
+
+The <div> remains, but its contents are removed.
+
+Difference
+$("#box").remove();
+
+Removes the entire #box
+
+$("#box").empty();
+
+ Removes everything inside #box
+
+19. Events in jQuery
+
+Events are actions that happen in the browser.
+
+Examples:
+
+click
+double click
+mouse enter
+mouse leave
+key press
+key down
+key up
+form submit
+change
+focus
+blur
+
+jQuery provides easy event handling.
+
+20. .click()
+
+Basic syntax:
+
+$("#btn").click(function () {
+    // code
+});
+
+Example:
+$("#btn").click(function () {
+    alert("Button clicked!");
+});
+
+21. .dblclick()
+Runs when the user double-clicks.
+
+$("#btn").dblclick(function () {
+    alert("Double clicked!");
+});
+
+22. .mouseenter()
+Runs when the mouse enters an element.
+
+$("#box").mouseenter(function () {
+    console.log("Mouse entered");
+});
+
+23. .mouseleave()
+Runs when the mouse leaves.
+
+$("#box").mouseleave(function () {
+    console.log("Mouse left");
+});
+
+24. .hover()
+.hover() can handle both mouse enter and mouse leave.
+
+$("#box").hover(
+    function () {
+        console.log("Mouse entered");
+    },
+    function () {
+        console.log("Mouse left");
+    }
+);
+
+First function:
+
+function () {
+    console.log("Mouse entered");
+}
+
+Mouse enters.
+
+Second function:
+
+function () {
+    console.log("Mouse left");
+}
+
+Mouse leaves.
+
+25. Keyboard Events
+.keydown()
+Runs when a keyboard key is pressed down.
+$("#name").keydown(function () {
+    console.log("Key pressed");
+});
+
+.keyup()
+Runs when the key is released.
+
+$("#name").keyup(function () {
+    console.log("Key released");
+});
+
+26. .change()
+Useful for form elements.
+Example:
+
+<select id="course">
+    <option value="python">Python</option>
+    <option value="react">React</option>
+    <option value="django">Django</option>
+</select>
+
+jQuery:
+
+$("#course").change(function () {
+    let course = $(this).val();
+    console.log(course);
+});
+
+
+27. What is this?
+Inside a jQuery event:
+
+$("#btn").click(function () {
+    console.log(this);
+});
+this refers to the element that triggered the event.
+
+For example:
+
+$("#btn").click(function () {
+    $(this).css("background-color", "red");
+});
+
+Instead of:
+$("#btn").css("background-color", "red");
+
+we can use:
+$(this)
+to refer to the clicked button.
